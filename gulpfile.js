@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('gulp'),
     pug = require('gulp-pug');
 
 
@@ -9,5 +9,5 @@ gulp.task('pug', function () {
         .pipe(pug({
             pretty:true
         }))
-        .pipe(gulp.dist('build'));
+        .pipe(gulp.dest('build'));
 })
