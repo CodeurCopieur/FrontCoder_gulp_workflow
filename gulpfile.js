@@ -1,11 +1,27 @@
 'use strict';
 
 var gulp = require('gulp'), // Requis
-    gp = require('gulp-load-plugins')(); // tous les plugins de package.json
+    gp = require('gulp-load-plugins')(), // tous les plugins de package.json
+    browserSync = require('browser-sync').create();
 
 // Variables de chemins
 var source = './src'; // dossier de travail
 var destination = './build'; // dossier à livrer
+
+/**
+ * ---------------------- BROWSER-SYNC ---------------------------
+ * Static Server + watching scss/pug files
+ */
+gulp.task('serve', function(){
+    browserSync.init({
+        server: {
+            baseDir: "./build"
+        }
+    });
+
+});
+
+
 
 /**
  * ---------------------- PUG vers HTML ---------------------------
@@ -15,19 +31,21 @@ gulp.task('pug', function () {
         .pipe(gp.pug({
             pretty:true
         }))
-        .pipe(gulp.dest(destination));
+        .pipe(gulp.dest(destination))
+        .on('end',browserSync.reload);
 });
 
 /**
- * ---------------------- STYLUS vers CSS ---------------------------
+ * ---------------------- SASS vers CSS ---------------------------
  * SOURCEMAPS => 
  * AUTOPREFIXER => Ajouter automatiquement les préfixes CSS3
  * CSSO => Minifier CSS
  */
-gulp.task('stylus', function(){
-    return gulp.src(source + '/static/stylus/main.styl')
+gulp.task('sass', function(){
+    return gulp.src(source + '/static/sass/main.scss')
         .pipe(gp.sourcemaps.init())
-        .pipe(gp.stylus({}))
+        .pipe(gp.plumberNotifier())
+        .pipe(gp.sass({}))
         .pipe(gp.autoprefixer({
             browsers: ['last 10 versions']
         }))
@@ -36,15 +54,18 @@ gulp.task('stylus', function(){
         }))
         .pipe(gp.csso())
         .pipe(gp.sourcemaps.write())
-        .pipe(gulp.dest(destination + '/static/css/'));
+        .pipe(gulp.dest(destination + '/static/css/'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 gulp.task('watch', function(){
     gulp.watch(source + '/pug/**/*.pug', ['pug']);
-    gulp.watch(source + '/static/stylus/**/*.styl', ['stylus'])
+    gulp.watch(source + '/static/sass/**/**/*.scss', ['sass'])
 });
 
 
-gulp.task('build', ['pug', 'stylus', 'watch']);
+gulp.task('build', ['pug', 'sass', 'watch', 'serve']);
 
 gulp.task('default', ['build'])
