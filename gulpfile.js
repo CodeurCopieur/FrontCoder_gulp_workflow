@@ -1,9 +1,4 @@
 'use strict';
-/*
-var gulp = require('gulp'), // Requis
-    gp = require('gulp-load-plugins')(), // tous les plugins de package.json
-    browserSync = require('browser-sync').create();
-*/
 
 global.$ = {
     gulp: require('gulp'),
@@ -21,13 +16,7 @@ $.path.tasks.forEach(function (taskPath) {
     require(taskPath)();
 });
 
-/*
-// Variables de chemins
-var source = './src'; // dossier de travail
-var destination = './build'; // dossier à livrer*/
 
-
-
-$.gulp.task('build', ['pug', 'sass', 'watch', 'serve']);
+$.gulp.task('build', ['pug', 'sass', 'scripts:lib', 'scripts', 'watch', 'serve']);
 
 $.gulp.task('default', ['build'])

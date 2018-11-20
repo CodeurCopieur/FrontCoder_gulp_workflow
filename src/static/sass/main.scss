@@ -1,21 +1,9 @@
-body {
-    background-color: pink;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-
-
-    p {
-        color: orange;
-    }
-
-    .one {
-        height: 200px;
-    }
-    .two{
-        height: 10px;
-        width: 100%;
-        background-color: green;
-    }
-
+.slider-item {
+    background-color: #ccc;
+    height: 40px;
+    padding: 20px;
+    margin: 0 20px;
+    overflow: hidden;
 }
+
+@import "libs.scss"

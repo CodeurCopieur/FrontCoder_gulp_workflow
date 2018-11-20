@@ -9,7 +9,9 @@ module.exports = function () {
         return $.gulp.src($.src + '/static/sass/main.scss')
             .pipe($.gp.sourcemaps.init())
             .pipe($.gp.plumberNotifier())
-            .pipe($.gp.sass({}))
+            .pipe($.gp.sass({
+                'include css': true
+            }))
             .pipe($.gp.autoprefixer({
                 browsers: ['last 10 versions']
             }))
