@@ -1,9 +1,15 @@
-.slider-item {
+body{
+    color: orange;
     background-color: #ccc;
+}
+
+.slider-item {
+    background-color: #000;
     height: 40px;
     padding: 20px;
     margin: 0 20px;
     overflow: hidden;
+    display: flex;
 }
 
 @import "libs.scss"

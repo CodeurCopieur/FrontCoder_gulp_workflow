@@ -18,7 +18,9 @@ module.exports = function () {
             .on("error", $.gp.notify.onError({
                 title: "stile"
             }))
-            .pipe($.gp.csso())
+            .pipe($.gp.csscomb())
+            .pipe($.gp.cssbeautify({indent: ' '}))
+            //.pipe($.gp.csso())
             .pipe($.gp.sourcemaps.write())
             .pipe($.gulp.dest($.dest + '/static/css/'))
             .pipe($.bs.reload({
