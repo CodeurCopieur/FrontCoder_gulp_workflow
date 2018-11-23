@@ -2,3 +2,4 @@ node_modules
 build
 a-faire.txt
 package-lock.json
+.idea

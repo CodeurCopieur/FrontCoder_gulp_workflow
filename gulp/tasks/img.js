@@ -1,3 +1,4 @@
+// Optimizing Images 
 module.exports = function () {
    $.gulp.task('images', function(){
        return $.gulp.src($.src + '/static/img/**/*.+(png|jpg|gif|svg)')
