@@ -6,7 +6,7 @@
  */
 module.exports = function () {
     $.gulp.task('sass', function(){
-        return $.gulp.src($.src + '/static/sass/main.scss')
+        return $.gulp.src($.src + '/static/sass/*.scss')
             .pipe($.gp.sourcemaps.init())
             .pipe($.gp.plumberNotifier())
             .pipe($.gp.sass({

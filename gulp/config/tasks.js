@@ -4,6 +4,5 @@ module.exports = [
     './gulp/tasks/serve',
     './gulp/tasks/watch',
     './gulp/tasks/script',
-    './gulp/tasks/img',
-    './gulp/tasks/minify'
+    './gulp/tasks/img'
 ];

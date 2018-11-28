@@ -17,6 +17,6 @@ $.path.tasks.forEach(function (taskPath) {
 });
 
 
-$.gulp.task('build', ['pug', 'sass', 'minify', 'scripts:lib', 'scripts', 'images', 'watch', 'serve']);
+$.gulp.task('build', ['pug', 'sass', 'scripts:lib', 'scripts', 'images', 'watch', 'serve']);
 
 $.gulp.task('default', ['build'])
