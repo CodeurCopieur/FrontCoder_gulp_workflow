@@ -30,8 +30,14 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+html{
+  font-size: $base-font-size;
+  height: 100%;
+}
+
 body {
-  line-height: 1;
+  height: 100%;
+  font-family: $main-font;
 }
 
 ol, ul {
@@ -56,3 +62,19 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto; }
+
+.container {
+  margin: 0 auto;
+  max-width: $content-size;
+  width: 100%;
+}
+

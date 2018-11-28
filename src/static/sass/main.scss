@@ -1,6 +1,6 @@
-@import 'reset';
-@import 'colors';
-@import 'header';
-
-
-@import "libs.scss"
+//@import "libs.scss";
+@import 'utils/vars';
+@import 'utils/reset';
+@import 'utils/normalize';
+@import 'utils/mixins';
+@import 'utils/fonts';
