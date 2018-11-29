@@ -2,4 +2,9 @@ node_modules
 build
 a-faire.txt
 package-lock.json
+fonts
 .idea
+*.xml
+.idea/workspace.xml
+*.xml
+.idea/workspace.xml
